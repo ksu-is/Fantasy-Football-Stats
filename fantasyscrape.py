@@ -18,6 +18,13 @@ for tr in table_rows:
     row = [i.text for i in td]
     print(row)
 
+def teamStat(team):
+    for tr in table_rows:
+        td = tr.find_all('td')
+        row = [i.text for i in td]
+        if team in row:
+            print('Ranking:',row[0], row[1],'PPG:',row[2])
+
 #module for the chiefs
 def Chiefs():
     KansasCity = ""
@@ -25,14 +32,13 @@ def Chiefs():
     for letter in KansasCity:
         KansasPoints =""
         KansasPoints += letter
-        return("Kansas City scored " + KansasPoints + " points per game last year")
+        print("Kansas City scored " + KansasPoints + " points per game last year")
 #user input 
 userInput = input("What teams offensive points per game would you like to see?")
-#if statement for the chiefs
-if userInput == 'Chiefs':
-    print(Chiefs())
-else:
-    print("not the chiefs")
+teamStat(userInput)
+
+
+
 
 
 
