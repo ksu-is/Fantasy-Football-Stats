@@ -6,10 +6,7 @@ import csv
 source = requests.get('https://www.teamrankings.com/nfl/stat/points-per-game').text
 
 soupObject = BeautifulSoup(source, "lxml")
-#print(soupObject.prettify())
-
 soupTitle = soupObject.title
-
 table = soupObject.table
 table_rows = table.find_all('tr')
 
@@ -28,8 +25,6 @@ def teamStat(team):
                 print("This teams offense improved in 2019")
             else:
                 print("This teams offense got worse in 2019")
-        else:
-            print("The teams location was not found")
 #user input 
 userInput = input("What teams offensive points per game would you like to see? Enter the Location of the team.")
 teamStat(userInput.title())
