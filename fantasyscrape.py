@@ -23,19 +23,16 @@ def teamStat(team):
         td = tr.find_all('td')
         row = [i.text for i in td]
         if team in row:
-            print('Ranking:',row[0], row[1],'PPG:',row[2])
-
-#module for the chiefs
-def Chiefs():
-    KansasCity = ""
-    KansasCity = table_rows[2].find('td','text-right','data-sort="29.8947"') 
-    for letter in KansasCity:
-        KansasPoints =""
-        KansasPoints += letter
-        print("Kansas City scored " + KansasPoints + " points per game last year")
+            print(userInput.title(),'Ranking:',row[0], row[1],'PPG:',row[2])
+            if row[2] > row[7]:
+                print("This teams offense improved in 2019")
+            else:
+                print("This teams offense got worse in 2019")
+        else:
+            print("The teams location was not found")
 #user input 
-userInput = input("What teams offensive points per game would you like to see?")
-teamStat(userInput)
+userInput = input("What teams offensive points per game would you like to see? Enter the Location of the team.")
+teamStat(userInput.title())
 
 
 
