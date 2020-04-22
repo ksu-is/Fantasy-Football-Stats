@@ -45,15 +45,15 @@ def teamStat(team):
             else:
                 print("This teams offense got worse in 2019")
     for tr in passtable_rows:
-        tabledata = tr.find_all('td')
-        passrow = [i.text for i in tabledata]
-        if team in passrow:
-            print(passrow[2], 'passing yards per game in 2019')   
+        td = tr.find_all('td')
+        row = [i.text for i in td]
+        if team in row:
+            print(row[2], 'passing yards per game in 2019')   
     for tr in rushtable_rows:
-        tabledata = tr.find_all('td')
-        rushrow = [i.text for i in tabledata]
-        if team in rushrow:
-            print(rushrow[2], 'rushing yards per game in 2019')   
+        td = tr.find_all('td')
+        row = [i.text for i in td]
+        if team in row:
+            print(row[2], 'rushing yards per game in 2019')   
 
              
 #user input 
