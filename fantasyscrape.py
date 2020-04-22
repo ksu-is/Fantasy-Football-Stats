@@ -15,22 +15,27 @@ soupTitle = soupObject.title
 passTitle = passObject.title
 rushTitle = rushObject.title
 
+#finding all table rows for points per game
 table = soupObject.table
 table_rows = table.find_all('tr')
 
+#for displaying ppg table
 for tr in table_rows:
     td = tr.find_all('td')
     row = [i.text for i in td]
     #print(row)
 
+#finding all table rows for passing yards
 passtable = passObject.table
 passtable_rows = passtable.find_all('tr')
 
+#for displaying passtable
 for tr in passtable_rows:
     tabledata = tr.find_all('td')
     passrow = [i.text for i in tabledata]
     #print(passrow)
 
+#finding all table rows for rushing yards
 rushtable = rushObject.table
 rushtable_rows = rushtable.find_all('tr')
 
