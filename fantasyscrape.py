@@ -91,5 +91,5 @@ def teamStat(team):
             print(row[2], 'rushing touchdowns per game in 2019')
              
 #user input 
-userInput = input("What teams offensive points per game would you like to see? Enter the Location of the team.")
+userInput = input("Enter the city of a team to view offensive stats: ")
 teamStat(userInput.title())
