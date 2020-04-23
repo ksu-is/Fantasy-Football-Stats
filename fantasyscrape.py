@@ -36,11 +36,20 @@ for tr in table_rows:
 passtable = passObject.table
 passtable_rows = passtable.find_all('tr')
 
+#finding all table rows for passing touchdowns
+passtable2 = passObject2.table
+passtable2_rows = passtable2.find_all('tr')
+
 #for displaying passtable
 for tr in passtable_rows:
     tabledata = tr.find_all('td')
     passrow = [i.text for i in tabledata]
     #print(passrow)
+
+#for displaying passtable2
+for tr in passtable2_rows:
+    tabledata = tr.find_all('td')
+    passrow2 = [i.text for i in tabledata]
 
 #finding all table rows for rushing yards
 rushtable = rushObject.table
@@ -64,7 +73,12 @@ def teamStat(team):
         td = tr.find_all('td')
         row = [i.text for i in td]
         if team in row:
-            print(row[2], 'passing yards per game in 2019')   
+            print(row[2], 'passing yards per game in 2019')  
+    for tr in passtable2_rows:
+        td = tr.find_all('td')
+        row = [i.text for i in td]
+        if team in row:
+            print(row[2], 'passing touchdowns per game')
     for tr in rushtable_rows:
         td = tr.find_all('td')
         row = [i.text for i in td]
