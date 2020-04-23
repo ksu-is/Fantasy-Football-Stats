@@ -11,8 +11,8 @@ rushsource2 = requests.get('https://www.teamrankings.com/nfl/stat/rushing-touchd
 
 soupObject = BeautifulSoup(source, "lxml")
 passObject = BeautifulSoup(passsource, "lxml")
-rushObject2 = BeautifulSoup(rushsource2, "lxml")
 rushObject = BeautifulSoup(rushsource, "lxml")
+rushObject2 = BeautifulSoup(rushsource2, "lxml")
 
 soupTitle = soupObject.title
 passTitle = passObject.title
@@ -43,6 +43,10 @@ for tr in passtable_rows:
 rushtable = rushObject.table
 rushtable_rows = rushtable.find_all('tr')
 
+#finding all table rows for rushing touchdowns per game
+rushtable2 = rushObject2.table
+rushtable2_rows = rushtable2.find_all('tr')
+
 def teamStat(team):
     for tr in table_rows:
         td = tr.find_all('td')
@@ -62,11 +66,13 @@ def teamStat(team):
         td = tr.find_all('td')
         row = [i.text for i in td]
         if team in row:
-            print(row[2], 'rushing yards per game in 2019')   
-
+            print(row[2], 'rushing yards per game in 2019') 
+    for tr in rushtable2_rows:
+        td = tr.find_all('td')
+        row = [i.text for i in td]
+        if team in row:
+            print(row[2], 'rushing touchdowns per game in 2019')
              
 #user input 
 userInput = input("What teams offensive points per game would you like to see? Enter the Location of the team.")
 teamStat(userInput.title())
-
-
