@@ -6,14 +6,18 @@ import csv
 source = requests.get('https://www.teamrankings.com/nfl/stat/points-per-game').text
 passsource = requests.get('https://www.teamrankings.com/nfl/stat/passing-yards-per-game').text
 rushsource = requests.get('https://www.teamrankings.com/nfl/stat/rushing-yards-per-game').text
+rushsource2 = requests.get('https://www.teamrankings.com/nfl/stat/rushing-touchdowns-per-game').text
+
 
 soupObject = BeautifulSoup(source, "lxml")
 passObject = BeautifulSoup(passsource, "lxml")
+rushObject2 = BeautifulSoup(rushsource2, "lxml")
 rushObject = BeautifulSoup(rushsource, "lxml")
 
 soupTitle = soupObject.title
 passTitle = passObject.title
 rushTitle = rushObject.title
+rushTitle2 = rushObject.title
 
 #finding all table rows for points per game
 table = soupObject.table
@@ -64,13 +68,5 @@ def teamStat(team):
 #user input 
 userInput = input("What teams offensive points per game would you like to see? Enter the Location of the team.")
 teamStat(userInput.title())
-
-
-
-
-
-
-
-
 
 
