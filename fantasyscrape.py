@@ -12,7 +12,7 @@ rushsource2 = requests.get('https://www.teamrankings.com/nfl/stat/rushing-touchd
 
 soupObject = BeautifulSoup(source, "lxml")
 passObject = BeautifulSoup(passsource, "lxml")
-passObject2 = BeautifulSoup(passsource, "lxml")
+passObject2 = BeautifulSoup(passsource2, "lxml")
 rushObject = BeautifulSoup(rushsource, "lxml")
 rushObject2 = BeautifulSoup(rushsource2, "lxml")
 
