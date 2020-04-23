@@ -5,17 +5,20 @@ import csv
 
 source = requests.get('https://www.teamrankings.com/nfl/stat/points-per-game').text
 passsource = requests.get('https://www.teamrankings.com/nfl/stat/passing-yards-per-game').text
+passsource2 = requests.get('https://www.teamrankings.com/nfl/stat/passing-touchdowns-per-game').text
 rushsource = requests.get('https://www.teamrankings.com/nfl/stat/rushing-yards-per-game').text
 rushsource2 = requests.get('https://www.teamrankings.com/nfl/stat/rushing-touchdowns-per-game').text
 
 
 soupObject = BeautifulSoup(source, "lxml")
 passObject = BeautifulSoup(passsource, "lxml")
+passObject2 = BeautifulSoup(passsource, "lxml")
 rushObject = BeautifulSoup(rushsource, "lxml")
 rushObject2 = BeautifulSoup(rushsource2, "lxml")
 
 soupTitle = soupObject.title
 passTitle = passObject.title
+passTitle2 = passObject2.title
 rushTitle = rushObject.title
 rushTitle2 = rushObject.title
 
